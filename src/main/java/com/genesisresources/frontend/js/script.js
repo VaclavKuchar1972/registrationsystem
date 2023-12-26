@@ -185,6 +185,7 @@ function submitExtendedInfoForm() {
       console.log(err);
       setResponseTextAndDisplayBlock(err.message);
     });
+
 }
 
 
