@@ -112,12 +112,19 @@
     font-weight: normal;
   }
 
+  #registrationForm .return-input,
+  #editUserForm .return-input,
+  #deleteUserForm .return-input,
+  #basicInfoUserForm .return-input,
+  #extendedInfoUserForm .return-input {
+    color: #03410a;
+  }
+
   #registrationForm .return-input {
     margin-top: 0px;
-    width: 36%;
+    width: 550px;
     margin-bottom: 0px;
     text-align: center;
-
   }
 
   #submit-return {
@@ -151,10 +158,11 @@
   }
 
   #editUserForm .return-input {
-      margin-top: 0px;
-      width: 36%;
-      margin-bottom: 0px;
-      text-align: center;
+    color: #03410a
+    margin-top: 0px;
+    width: 550px;
+    margin-bottom: 0px;
+    text-align: center;
   }
 
   #submit-edit {
@@ -189,7 +197,7 @@
 
   #deleteUserForm .return-input {
     margin-top: 0px;
-    width: 36%;
+    width: 550px;
     margin-bottom: 0px;
     text-align: center;
   }
@@ -225,7 +233,7 @@
 
   #basicInfoUserForm .return-input {
     margin-top: 0px;
-    width: 36%;
+    width: 550px;
     margin-bottom: 0px;
     text-align: center;
   }
@@ -250,34 +258,53 @@
   }
 
 
+
+
   #resultTable {
-    margin-top: 0px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-    margin-bottom: 0px;
-    text-align: center;
+      margin-top: 0px;
+      margin-left: auto;
+      margin-right: auto;
+      width: 550px;
+      margin-bottom: 0px;
+      padding: 0px;
   }
+
   #resultTable table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      padding: 0px;
   }
+
   #resultTable th,
   #resultTable td {
-    border: 1px solid #fff185;
-    padding: 8px;
-    text-align: center;
+      border: 1px solid #fff185;
+      padding: 0px;
+      padding-top: 3px;
+      padding-bottom: 3px;
+      padding-left: 5px;
   }
+
   #resultTable th {
-    background-color: #fff185;
-    color: #03410a;
-    height: 15px
+      background-color: #fff185;
+      color: #13791d;
+      text-align: left;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-weight: 700;
+      font-size: 10px;
+      height: 10px;
+      line-height: 10px;
   }
+
   #resultTable tbody tr {
-    background-color: #87c053;
-    color: #fff;
-    height: 15px
+      background-color: #13791d;
+      color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-weight: 400;
+      font-size: 12px;
+      height: 12px;
+      line-height: 12px;
+      text-align: left;
   }
 
 
@@ -293,7 +320,7 @@
 
   #extendedInfoUserForm .return-input {
     margin-top: 0px;
-    width: 41%;
+    width: 550px;
     margin-bottom: 0px;
     text-align: center;
   }

@@ -64,6 +64,14 @@ function validateUserId(userId) {
     return true;
 }
 
+function clearTable(tableId) {
+  var tableBody = document.getElementById(tableId);
+  while (tableBody.firstChild) {
+    tableBody.removeChild(tableBody.firstChild);
+  }
+}
+
+
 function submitRegistrationForm() {
   var name = document.getElementById("registration-input-1").value;
   var surname = document.getElementById("registration-input-2").value;
@@ -128,6 +136,7 @@ function submitDeleteForm() {
 }
 
 function submitBasicInfoForm() {
+  clearTable("resultTableBody");
   var userId = document.getElementById("basic-input-1").value;
   if (!validateUserId(userId)) {return;}
   fetch("http://localhost:8080/api/v1/user/" + userId)
