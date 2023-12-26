@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="cs-cz">
+<!-- This site was created in Webflow. https://www.webflow.com -->
+<!-- Last Published: Sun Dec 10 2023 10:52:54 GMT+0000 (Coordinated Universal Time) -->
+<html data-wf-page="6570d90aa76aaef471cf0ba4" data-wf-site="6570d90aa76aaef471cf0ba1">
+<head>
+  <meta charset="utf-8">
+  <title>Registrační sytém společnosti Genesis Resources</title>
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <meta content="Webflow" name="generator">
+  <link href="css/normalize.css" rel="stylesheet" type="text/css">
+  <link href="css/webflow.css" rel="stylesheet" type="text/css">
+  <link href="css/registracni-sytem-spolecnosti-genesis-r.webflow.css" rel="stylesheet" type="text/css">
+  <script type="text/javascript">
+    !function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",
+    ("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);
+  </script>
+  <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+  <link href="images/webclip.png" rel="apple-touch-icon">
+</head>
+<body class="body">
+<img src="images/logo.jpg" loading="lazy" width="300" alt="" class="image">
+<div class="text-block-1">MAJÁK K LEPŠÍ BUDOUCNOSTI</div>
+<div class="text-block-3">VÍTEJTE V NAŠEM REGISTRAČNÍM SYSTÉMU</div>
+<div class="text-block-4">Přidejte se k naší rozrůstající se komunitě a zajistěte s námi lepší a spravedlivější
+  budoucnost sobě i všem ostatním přeživším.<br>
+</div>
+<div class="text-block-5">Vyberte si prosím jednu z následujících možností, klikněte na ní a postupujte dle instrukcí.
+</div>
+<section class="section-3">
+  <a href="#" class="button-3 w-button" onclick="showRegistrationForm()">ZAREGISTROVAT SE</a>
+  <a href="#" class="button-3 w-button" onclick="showEditUserInfoForm()">UPRAVIT INFORMACE O UŽIVATELI</a>
+  <a href="#" class="button-3 w-button" onclick="showDeleteUserForm()">SMAZAT UŽIVATELE</a>
+</section>
+<section class="section-3">
+  <a href="#" class="button-3 w-button" onclick="showBasicInfoForm()">ZÁKLADNÍ INFORMACE O UŽIVATELI</a>
+  <a href="#" class="button-3 w-button" onclick="showExtendedInfoForm()">ROZŠÍŘENÉ INFORMACE O UŽIVATELI</a>
+</section>
+<section class="section-3">
+  <a href="#" class="button-3 w-button">ZÁKLADNÍ INFORMACE O VŠECH UŽIVATELÍCH</a>
+  <a href="#" class="button-3 w-button">ROZŠÍŘENÉ INFORMACE O VŠECH UŽIVATELÍCH</a>
+</section>
+<section id="registrationForm" class="return-form" style="display: none;">
+  <div class="text-block-7">REGISTRACE NOVÉHO UŽIVATELE</div>
+  <label for="return-input-1">Zde zadejte své JMÉNO. Maximální počet znaků pro jméno je 255.</label>
+  <input type="text" id="registration-input-1" class="return-input" />
+  <label for="return-input-2">Zde zadejte své PŘÍJMENÍ. Maximální počet znaků pro příjmení je 255.</label>
+  <input type="text" id="registration-input-2" class="return-input" />
+  <label for="return-input-3">Zde zadejte své Person ID. Dávejte si pozor, aby jste ho zadali naprosto přesně.</label>
+  <input type="text" id="registration-input-3" class="return-input" />
+  <button id="submit-return" class="button-3 w-button" onclick="submitRegistrationForm()">ODESLAT INFORMACE</button>
+</section>
+<section id="editUserForm" class="return-form" style="display: none;">
+  <div class="text-block-7">UPRAVIT INFORMACE O UŽIVATELI</div>
+  <label for="edit-input-1">Zde zadejte Vaše ID. Lze zadat pouze celé kladné číslo větší než nula.</label>
+  <input type="text" id="edit-input-1" class="return-input" />
+  <label for="edit-input-2">Zde zadejte nové JMÉNO. Maximální počet znaků pro jméno je 255.</label>
+  <input type="text" id="edit-input-2" class="return-input" />
+  <label for="edit-input-3">Zde zadejte nové PŘÍJMENÍ. Maximální počet znaků pro příjmení je 255.</label>
+  <input type="text" id="edit-input-3" class="return-input" />
+  <button id="submit-edit" class="button-3 w-button" onclick="submitEditForm()">ULOŽIT ZMĚNY</button>
+</section>
+<section id="deleteUserForm" class="return-form" style="display: none;">
+  <div class="text-block-7">SMAZAT UŽIVATELE</div>
+  <label for="delete-input-1">Zde zadejte Vaše ID. Lze zadat pouze celé kladné číslo větší než nula.</label>
+  <input type="text" id="delete-input-1" class="return-input" />
+  <button id="submit-delete" class="button-3 w-button" onclick="submitDeleteForm()">SMAZAT UŽIVATELE</button>
+</section>
+<section id="basicInfoUserForm" class="return-form" style="display: none;">
+  <div class="text-block-7">ZÁKLADNÍ INFORMACE O UŽIVATELI</div>
+  <label for="basic-input-1">Zde zadejte ID uživatele, kterého si chcete zobrazit. Lze zadat pouze celé kladné číslo
+    větší než nula.
+  </label>
+  <input type="text" id="basic-input-1" class="return-input" />
+  <a href="#" class="button-3 w-button" id="submit-basic-info" onclick="submitBasicInfoForm()">ZÍSKAT ZÁKLADNÍ INFORMACE
+    O UŽIVATELI
+  </a>
+</section>
+<section id="resultTable" class="return-form" style="display: none;">
+  <div class="text-block-7">ZÁKLADNÍ INFORMACE O UŽIVATELI</div>
+  <table>
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>JMÉNO</th>
+      <th>PŘÍJMENÍ</th>
+    </tr>
+    </thead>
+    <tbody id="resultTableBody">
+    </tbody>
+  </table>
+</section>
+
+
+<section id="extendedInfoUserForm" class="return-form" style="display: none;">
+  <div class="text-block-7">ROZŠÍŘENÉ INFORMACE O UŽIVATELI</div>
+  <label for="extended-input-1">Zde zadejte ID uživatele, kterého si chcete zobrazit. Lze zadat pouze celé kladné číslo
+    větší než nula.
+  </label>
+  <input type="text" id="extended-input-1" class="return-input" />
+  <a href="#" class="button-3 w-button" id="submit-extended-info" onclick="submitExtendedInfoForm()">ZÍSKAT ROZŠÍŘENÉ
+    INFORMACE O UŽIVATELI
+  </a>
+</section>
+
+<section id="responseBlock" class="return-form" style="display: none;">
+  <div id="responseText" class="text-block-8">zde se pak zobrazí textová odpověď z back-endu</div>
+</section>
+
+<script src="js/jquery-3.7.1.js" type="text/javascript"></script>
+<script src="js/webflow.js" type="text/javascript"></script>
+<script src="js/script.js" type="text/javascript"></script>
+
+</body>
+</html>
