@@ -159,24 +159,37 @@ function submitBasicInfoForm() {
     });
 }
 
-
-
-
-
-
 function submitExtendedInfoForm() {
-  fetch('/api/v1/user/' + document.getElementById("extended-input-1").value + '?detail=true', {
-    method: 'GET',
-  })
-    .then(response => response.json())
+  clearTable("extendedResultTableBody");
+  var userId = document.getElementById("extended-input-1").value;
+  if (!validateUserId(userId)) {
+    return;
+  }
+  fetch("http://localhost:8080/api/v1/user/" + userId + "?detail=true")
+    .then(handleResponse)
     .then(data => {
-      var resultBlock = document.createElement("div");
-      resultBlock.className = "text-block-result";
-      resultBlock.innerHTML = "Výsledek z backendu pro rozšířené informace o uživateli: " + JSON.stringify(data);
-      document.body.appendChild(resultBlock);
+      console.log(data);
+      hideAllForms();
+      clearFormFields("extendedInfoUserForm");
+      var resultTableBody = document.getElementById("extendedResultTableBody");
+      var userData = JSON.parse(data);
+      var newRow = resultTableBody.insertRow();
+      newRow.insertCell(0).textContent = userData.id;
+      newRow.insertCell(1).textContent = userData.name;
+      newRow.insertCell(2).textContent = userData.surname;
+      newRow.insertCell(3).textContent = userData.personID;
+      newRow.insertCell(4).textContent = userData.uuid;
+      document.getElementById("extendedResultTable").style.display = "block";
     })
-    .catch(error => console.error('Chyba:', error));
+    .catch(err => {
+      console.log(err);
+      setResponseTextAndDisplayBlock(err.message);
+    });
 }
+
+
+
+
 
 
 
