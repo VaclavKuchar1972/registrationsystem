@@ -99,7 +99,6 @@ public class UserController {
         }
     }
 
-
     @PutMapping("/user")
     public ResponseEntity<String> updateUser(@RequestBody User updatedUser) {
         return commonMethodForUpdateUser(updatedUser.getId(), updatedUser.getName(), updatedUser.getSurname());
@@ -199,7 +198,6 @@ public class UserController {
                     .body(repeatingDBerrUserMessage + "i s ID " + id + " z " + repeatingDBerrMessage);
         }
     }
-
 
     @GetMapping("/users")
     public ResponseEntity<?> getAllUsers(@RequestParam(defaultValue = "false") boolean detail) {
