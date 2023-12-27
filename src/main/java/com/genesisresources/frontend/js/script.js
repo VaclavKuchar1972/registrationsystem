@@ -183,8 +183,35 @@ function submitExtendedInfoForm() {
       console.log(err);
       setResponseTextAndDisplayBlock(err.message);
     });
-
 }
+
+function showAllUsersBasicInfo() {
+  hideAllForms();
+  clearTable("allUsersResultTableBody");
+  fetch("http://localhost:8080/api/v1/users")
+    .then(handleResponse)
+    .then(data => {
+      console.log(data);
+      var resultTableBody = document.getElementById("allUsersResultTableBody");
+      var usersData = JSON.parse(data);
+      usersData.forEach(user => {
+        var newRow = resultTableBody.insertRow();
+        newRow.insertCell(0).textContent = user.id;
+        newRow.insertCell(1).textContent = user.name;
+        newRow.insertCell(2).textContent = user.surname;
+      });
+      document.getElementById("allUsersResultTable").style.display = "block";
+    })
+    .catch(err => {
+      console.log(err);
+      setResponseTextAndDisplayBlock(err.message);
+    });
+}
+
+
+
+
+
 
 
 

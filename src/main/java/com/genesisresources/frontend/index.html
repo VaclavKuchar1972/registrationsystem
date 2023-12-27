@@ -37,9 +37,10 @@
   <a href="#" class="button-3 w-button" onclick="showExtendedInfoForm()">ROZŠÍŘENÉ INFORMACE O UŽIVATELI</a>
 </section>
 <section class="section-3">
-  <a href="#" class="button-3 w-button">ZÁKLADNÍ INFORMACE O VŠECH UŽIVATELÍCH</a>
+  <a href="#" class="button-3 w-button" onclick="showAllUsersBasicInfo()">ZÁKLADNÍ INFORMACE O VŠECH UŽIVATELÍCH</a>
   <a href="#" class="button-3 w-button">ROZŠÍŘENÉ INFORMACE O VŠECH UŽIVATELÍCH</a>
 </section>
+
 <section id="registrationForm" class="return-form" style="display: none;">
   <div class="text-block-7">REGISTRACE NOVÉHO UŽIVATELE</div>
   <label for="return-input-1">Zde zadejte své JMÉNO. Maximální počet znaků pro jméno je 255.</label>
@@ -50,6 +51,7 @@
   <input type="text" id="registration-input-3" class="return-input" />
   <button id="submit-return" class="button-3 w-button" onclick="submitRegistrationForm()">ODESLAT INFORMACE</button>
 </section>
+
 <section id="editUserForm" class="return-form" style="display: none;">
   <div class="text-block-7">UPRAVIT INFORMACE O UŽIVATELI</div>
   <label for="edit-input-1">Zde zadejte Vaše ID. Lze zadat pouze celé kladné číslo větší než nula.</label>
@@ -60,12 +62,14 @@
   <input type="text" id="edit-input-3" class="return-input" />
   <button id="submit-edit" class="button-3 w-button" onclick="submitEditForm()">ULOŽIT ZMĚNY</button>
 </section>
+
 <section id="deleteUserForm" class="return-form" style="display: none;">
   <div class="text-block-7">SMAZAT UŽIVATELE</div>
   <label for="delete-input-1">Zde zadejte Vaše ID. Lze zadat pouze celé kladné číslo větší než nula.</label>
   <input type="text" id="delete-input-1" class="return-input" />
   <button id="submit-delete" class="button-3 w-button" onclick="submitDeleteForm()">SMAZAT UŽIVATELE</button>
 </section>
+
 <section id="basicInfoUserForm" class="return-form" style="display: none;">
   <div class="text-block-7">ZÁKLADNÍ INFORMACE O UŽIVATELI</div>
   <label for="basic-input-1">Zde zadejte ID uživatele, kterého si chcete zobrazit. Lze zadat pouze celé kladné číslo
@@ -90,6 +94,7 @@
     </tbody>
   </table>
 </section>
+
 <section id="extendedInfoUserForm" class="return-form" style="display: none;">
   <div class="text-block-7">ROZŠÍŘENÉ INFORMACE O UŽIVATELI</div>
   <label for="extended-input-1">Zde zadejte ID uživatele, kterého si chcete zobrazit. Lze zadat pouze celé kladné číslo
@@ -117,9 +122,20 @@
   </table>
 </section>
 
-
-
-
+<section id="allUsersResultTable" class="return-form" style="display: none;">
+  <div class="text-block-7">ZÁKLADNÍ INFORMACE O VŠECH UŽIVATELÍCH</div>
+  <table>
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>JMÉNO</th>
+      <th>PŘÍJMENÍ</th>
+    </tr>
+    </thead>
+    <tbody id="allUsersResultTableBody">
+    </tbody>
+  </table>
+</section>
 
 
 
