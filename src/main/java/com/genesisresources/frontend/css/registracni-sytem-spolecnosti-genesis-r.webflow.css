@@ -312,7 +312,7 @@
     margin-top: 0px;
     margin-left: auto;
     margin-right: auto;
-    width: 700px;
+    width: 775px;
     margin-bottom: 0px;
     padding: 0px;
   }
@@ -353,6 +353,31 @@
     height: 12px;
     line-height: 12px;
     text-align: left;
+  }
+
+  #extendedResultTable tbody td:nth-child(1),
+  #extendedResultTable thead th:nth-child(1) {
+    width: auto;
+  }
+
+  #extendedResultTable tbody td:nth-child(2),
+  #extendedResultTable thead th:nth-child(2) {
+    width: auto;
+  }
+
+  #extendedResultTable tbody td:nth-child(3),
+  #extendedResultTable thead th:nth-child(3) {
+    width: auto;
+  }
+
+  #extendedResultTable tbody td:nth-child(4),
+  #extendedResultTable thead th:nth-child(4) {
+    width: 93px;
+  }
+
+  #extendedResultTable tbody td:nth-child(5),
+  #extendedResultTable thead th:nth-child(5) {
+    width: 243px;
   }
 
 

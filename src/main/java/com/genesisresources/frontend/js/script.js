@@ -162,9 +162,7 @@ function submitBasicInfoForm() {
 function submitExtendedInfoForm() {
   clearTable("extendedResultTableBody");
   var userId = document.getElementById("extended-input-1").value;
-  if (!validateUserId(userId)) {
-    return;
-  }
+  if (!validateUserId(userId)) {return;}
   fetch("http://localhost:8080/api/v1/user/" + userId + "?detail=true")
     .then(handleResponse)
     .then(data => {
