@@ -38,7 +38,7 @@
 </section>
 <section class="section-3">
   <a href="#" class="button-3 w-button" onclick="showAllUsersBasicInfo()">ZÁKLADNÍ INFORMACE O VŠECH UŽIVATELÍCH</a>
-  <a href="#" class="button-3 w-button">ROZŠÍŘENÉ INFORMACE O VŠECH UŽIVATELÍCH</a>
+  <a href="#" class="button-3 w-button" onclick="showAllUsersExtendedInfo()">ROZŠÍŘENÉ INFORMACE O VŠECH UŽIVATELÍCH</a>
 </section>
 
 <section id="registrationForm" class="return-form" style="display: none;">
@@ -137,7 +137,22 @@
   </table>
 </section>
 
-
+<section id="allUsersExtendedResultTable" class="return-form" style="display: none;">
+  <div class="text-block-7">ROZŠÍŘENÉ INFORMACE O VŠECH UŽIVATELÍCH</div>
+  <table>
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>JMÉNO</th>
+      <th>PŘÍJMENÍ</th>
+      <th>PERSON ID</th>
+      <th>UUID</th>
+    </tr>
+    </thead>
+    <tbody id="allUsersExtendedResultTableBody">
+    </tbody>
+  </table>
+</section>
 
 <section id="responseBlock" class="return-form" style="display: none;">
   <div id="responseText" class="text-block-8">zde se pak zobrazí textová odpověď z back-endu</div>

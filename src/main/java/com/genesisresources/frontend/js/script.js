@@ -208,7 +208,30 @@ function showAllUsersBasicInfo() {
     });
 }
 
-
+function showAllUsersExtendedInfo() {
+  hideAllForms();
+  clearTable("allUsersExtendedResultTableBody");
+  fetch("http://localhost:8080/api/v1/users?detail=true")
+    .then(handleResponse)
+    .then(data => {
+      console.log(data);
+      var resultTableBody = document.getElementById("allUsersExtendedResultTableBody");
+      var usersData = JSON.parse(data);
+      usersData.forEach(user => {
+        var newRow = resultTableBody.insertRow();
+        newRow.insertCell(0).textContent = user.id;
+        newRow.insertCell(1).textContent = user.name;
+        newRow.insertCell(2).textContent = user.surname;
+        newRow.insertCell(3).textContent = user.personID;
+        newRow.insertCell(4).textContent = user.uuid;
+      });
+      document.getElementById("allUsersExtendedResultTable").style.display = "block";
+    })
+    .catch(err => {
+      console.log(err);
+      setResponseTextAndDisplayBlock(err.message);
+    });
+}
 
 
 
