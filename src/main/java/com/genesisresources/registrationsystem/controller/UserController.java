@@ -78,9 +78,9 @@ public class UserController {
             }
             if (userService.isPersonIDUsed(newUserRequest.getPersonID())) {
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Uživatel s personID "
-                        + newUserRequest.getPersonID() + " již existuje v databázi společnosti Genesis Resources. Je "
-                        + "nám líto, ale nový uživatel " + newUserRequest.getNameSurnamePersonId() + " nebyl/a přidán "
-                        + "do naší databáze.");
+                        + newUserRequest.getPersonID() + " již existuje v databázi společnosti Genesis Resources nebo "
+                        + "jste nepoužili platné PersonID. Je nám líto, ale nový uživatel "
+                        + newUserRequest.getNameSurnamePersonId() + " nebyl/a přidán do naší databáze.");
             }
             User addedUser = userService.addUser(newUserRequest);
             // Tady jsem oproti pravidlům ponechal zakomentovanou část kódu, nejdříve mi přišlo, že by se person ID mělo
