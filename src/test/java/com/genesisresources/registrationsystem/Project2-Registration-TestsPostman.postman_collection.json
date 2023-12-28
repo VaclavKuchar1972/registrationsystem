@@ -24,7 +24,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\"name\": \"Václav\",\r\n\"surname\": \"Kuchař\",\r\n\"personID\": \"xF9hD2yJ3sWv\"\r\n}",
+					"raw": "{\r\n\"name\": \"Ivo\",\r\n\"surname\": \"Jahelka\",\r\n\"personID\": \"xF9hD2yJ3sWv\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -48,13 +48,13 @@
 			"response": []
 		},
 		{
-			"name": "Divné v Kódu při fyzických testech přes front-end to funguje - z JS na FO posílám Json na BE bez problémů a vše se stane jak má",
+			"name": "CorrectPUT",
 			"request": {
 				"method": "PUT",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\"id\": 60,\r\n\"newName\": \"Vidia\",\r\n\"newSurname\": \"Kuchařová\"\r\n}",
+					"raw": "{\r\n\"id\": 65,\r\n\"name\": \"Vidia\",\r\n\"surname\": \"Kuchařová\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -72,42 +72,6 @@
 						"api",
 						"v1",
 						"user"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "No a přes URL a GET to funguje, přestože obě metody PUT i GET využívají shodnou metodu v JAVA",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/api/v1/user/update?id=60&newName=Ilona&newSurname=Kuchařová",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"api",
-						"v1",
-						"user",
-						"update"
-					],
-					"query": [
-						{
-							"key": "id",
-							"value": "60"
-						},
-						{
-							"key": "newName",
-							"value": "Ilona"
-						},
-						{
-							"key": "newSurname",
-							"value": "Kuchařová"
-						}
 					]
 				}
 			},
@@ -120,7 +84,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\"id\": 2\r\n}",
+					"raw": "{\r\n\"id\": 5\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -235,6 +199,106 @@
 						{
 							"key": "detail",
 							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "NewUserByURL",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/user/add?name=Václav&surname=Kuchař&personID=qE3lY6uT0vKd",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"add"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Václav"
+						},
+						{
+							"key": "surname",
+							"value": "Kuchař"
+						},
+						{
+							"key": "personID",
+							"value": "qE3lY6uT0vKd"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EditUserByURL",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/user/update?id=66&newName=Ilona&newSurname=Kuchařová",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"update"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "66"
+						},
+						{
+							"key": "newName",
+							"value": "Ilona"
+						},
+						{
+							"key": "newSurname",
+							"value": "Kuchařová"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteUserByURL",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/user/delete?id=66",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "66"
 						}
 					]
 				}

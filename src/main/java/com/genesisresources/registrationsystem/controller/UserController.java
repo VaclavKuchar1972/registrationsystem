@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@CrossOrigin(origins = "*") // Jen pro fyzické testy front-endu, jinak je to špatně kvůli bezpečnosti kolem CORS
+@CrossOrigin(origins = "*") // Jen pro fyzické testy front-endu a PostMan, jinak je to špatně kvůli bezpečnosti kolem CORS
 @RestController
 @RequestMapping("/api/v1")
 public class UserController {
@@ -40,8 +40,6 @@ public class UserController {
     {
         User newUser = new User(); newUser.setName(name); newUser.setSurname(surname); newUser.setPersonID(personID);
         return commonMethodForAddingUser(newUser);
-        // Testovací URL:
-        //http://localhost:8080/api/v1/user/add?name=Václav&surname=Kuchař&personID=bG2zC7jR9xVp
     }
     private ResponseEntity<String> commonMethodForAddingUser(User newUserRequest) {
         String repeatingLongNSerrMessage = ". Nový uživatel nebyl přidán do databáze společnosti Genesis Resources,"
@@ -108,8 +106,6 @@ public class UserController {
             @RequestParam Long id,
             @RequestParam String newName,
             @RequestParam String newSurname
-            // Testovací URL:
-            //http://localhost:8080/api/v1/user/update?id=1&newName=Ilona&newSurname=Kuchařová
     ) {return commonMethodForUpdateUser(id, newName, newSurname);}
     private ResponseEntity<String> commonMethodForUpdateUser(Long id, String newName, String newSurname) {
         String repeatingUserUpdateMessage = "Údaje o uživateli v databázi společnosti Genesis Resources tedy nemohli "
@@ -121,15 +117,18 @@ public class UserController {
                         + " nebylo nalezeno v databázi společnosti Genesis Resources. "
                         + repeatingUserUpdateMessage);
             }
-            if (newName == null || newName == "") {
+
+            System.out.println("DEBUG: newName value: " + newName); // Přidáno pro kontrolu
+
+            if (newName == null || newName.isEmpty()) {
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                        .body("Vážený uživateli, nezadal/a jste žádné nové jméno. " + repeatingUserUpdateMessage);
+                        .body("Vážený uživateli, nezadal/a jste žádné nové jméno. " + "  ID "+id+"   "  + repeatingUserUpdateMessage);
             } else if (existingUser.isTooLongName()) {
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                         .body("Vážený uživateli, zadal/a jste příliš dlouhé nové jméno. " + repeatingUserUpdateMessage
                                 + " Maximální počet znaků pro jméno je 255.");
             }
-            if (newSurname == null || newSurname == "") {
+            if (newSurname == null || newSurname.isEmpty()) {
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                         .body("Vážený uživateli, nezadal/a jste žádné nové příjmení. " + repeatingUserUpdateMessage);
             } else if (existingUser.isTooLongSurname()) {
@@ -156,8 +155,6 @@ public class UserController {
     @DeleteMapping("/user")
     public ResponseEntity<String> deleteUser(@RequestBody User user) {return commonMethodForDeleteUser(user.getId());}
     @GetMapping("/user/delete")
-    // Testovací URL:
-    //http://localhost:8080/api/v1/user/delete?id=1
     public ResponseEntity<String> deleteUserFromUrl(@RequestParam Long id) {return commonMethodForDeleteUser(id);}
     private ResponseEntity<String> commonMethodForDeleteUser(Long id) {
         try {
@@ -188,11 +185,7 @@ public class UserController {
                                 + "Resources. Nelze tedy zobrazit jeho údaje.");
             }
             if (detail) {return ResponseEntity.ok(user.getUserWithExtension());}
-            // Testovací URL:
-            //http://localhost:8080/api/v1/user/1?detail=true
             else {return ResponseEntity.ok(user.getUserNoExtension());}
-            // Testovací URL:
-            //http://localhost:8080/api/v1/user/1
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body(repeatingDBerrUserMessage + "i s ID " + id + " z " + repeatingDBerrMessage);
@@ -210,11 +203,7 @@ public class UserController {
             List<Object> formattedUsers = users.stream()
                     .map(user -> detail
                             ? user.getUserWithExtension()
-                            // Testovací URL:
-                            //http://localhost:8080/api/v1/users?detail=true
                             : user.getUserNoExtension())
-                    // Testovací URL:
-                    //http://localhost:8080/api/v1/users
                     .collect(Collectors.toList());
             return ResponseEntity.ok(formattedUsers);
         } catch (Exception e) {

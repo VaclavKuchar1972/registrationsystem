@@ -14,6 +14,7 @@ public class User {
     private String personID;
     private String uuid;
 
+
     public User(long id, String name, String surname, String personID, String uuid) {
         this.id = id;
         this.name = name;
@@ -22,7 +23,9 @@ public class User {
         this.uuid = uuid;
     }
 
-    public User() {this.name = name;}
+    public User() {}
+
+
     public boolean isTooLongName() {return name.length() > 255;}
     public boolean isTooLongSurname() {return surname.length() > 255;}
     public boolean isValidPersonID() {
