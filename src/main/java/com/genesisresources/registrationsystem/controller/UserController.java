@@ -80,10 +80,11 @@ public class UserController {
                         + "jste nepoužili platné PersonID. Je nám líto, ale nový uživatel "
                         + newUserRequest.getNameSurnamePersonId() + " nebyl/a přidán do naší databáze.");
             }
-            User addedUser = userService.addUser(newUserRequest);
+            userService.addUser(newUserRequest);
             // Tady jsem oproti pravidlům ponechal zakomentovanou část kódu, nejdříve mi přišlo, že by se person ID mělo
             // odstranit i z toho TXT, když se přidá uživatel, ale nakonec jsem si to rozmyslel, tak kdyby to bylo
             // špatně, jen to odkomentuji. Nepoužitou metodu removePersonID jsem v PersonIDService nechal aktivní.
+            //User addedUser = userService.addUser(newUserRequest);
             //personIDService.removePersonID(addedUser.getPersonID());
             return ResponseEntity.status(HttpStatus.CREATED).body("Gratulujeme, uživatel "
                     + newUserRequest.getNameSurnamePersonId() + " byl/a úspěšně přidán/a do databáze společnosti "
